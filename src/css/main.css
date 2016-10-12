@@ -1,0 +1,183 @@
+@import "fonts.css";
+
+:root {
+    /* global */
+    --primary: #2196F3;
+    --primary-dark: #1976D2;
+
+    /* header */
+    --header-large-height: 64px;
+    --header-small-height: 56px;
+
+    --header-large-padding: 0 var(--header-large-height) 0 24px;
+    --header-small-padding: 0 var(--header-small-height);
+
+    --header-font-size: 20px;
+    --header-font-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+    padding-top: var(--header-large-height);
+}
+
+.flex {
+    display: flex;
+}
+
+header {
+    position: fixed;
+    top: 0;
+
+    height: var(--header-large-height);
+    width: 100%;
+
+    padding: var(--header-large-padding);
+
+    background: var(--primary);
+    line-height: var(--header-large-height);
+
+    color: var(--header-font-color);
+
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+    z-index: 999;
+}
+
+.settings-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    height: var(--header-large-height);
+    width: var(--header-large-height);
+
+    line-height: var(--header-large-height);
+    text-align: center;
+
+    color: var(--header-font-color);
+
+    /* I need to reset button settings :| */
+    border: none;
+    background: none;
+
+    z-index: 999;
+}
+
+.settings-shade {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    background: rgba(0,0,0, 0.3);
+    z-index: 1000;
+}
+
+.settings-content {
+    position: fixed;
+    bottom: 0;
+
+    height: 224px;
+    width: 100%;
+    background: #fff;
+    z-index: 1001;
+}
+
+input {
+    outline: none;
+    border: none;
+    background: none;
+
+    border-bottom: 2px solid #ddd;
+    transition: border-bottom-color 200ms;
+
+    border-radius: 2px;
+    background: #f9f9f9;
+
+    height: 32px;
+    flex: 1;
+    margin: 8px;
+    padding: 0 8px;
+}
+
+input:focus {
+    border-bottom-color: var(--primary-dark);
+}
+
+button {
+    outline: none;
+    border: none;
+    background: var(--primary);
+    height: 32px;
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 0 16px;
+    text-transform: uppercase;
+
+    color: white;
+    align-self: center;
+    margin: 8px;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    background: var(--primary);
+    transition: opacity 500ms;
+}
+
+.loading.ready {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-text {
+    --loading-height: calc(48px * 2);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    height: var(--loading-height);
+    max-width: calc(100% - 64px);
+
+    color: #fff;
+    font-size: 48px;
+
+    text-align: center;
+
+    line-height: var(--loading-height);
+}
+
+.loading-text .material-icons {
+    font-size: 36px;
+}
+
+.nopath {
+    position: absolute;
+    top: 128px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+
+    display: block;
+    width: 224px;
+    color: #aaa;
+    font-size: 11px;
+}
