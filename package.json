@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/mashedpotats/electron-muick#readme",
   "dependencies": {
-    "material-ripple": "^0.2.5"
+    "electron": "^1.4.3",
+    "material-ripple": "^0.2.5",
+    "jquery": "^3.1.1"
   }
 }

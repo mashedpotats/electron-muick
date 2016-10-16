@@ -1,0 +1,30 @@
+:root {
+    /* global */
+    --primary: #2196F3;
+    --primary-dark: #1976D2;
+
+    /* header */
+    --header-large-height: 64px;
+    --header-small-height: 56px;
+
+    --header-large-padding: 0 var(--header-large-height) 0 24px;
+    --header-small-padding: 0 var(--header-small-height);
+
+    --header-font-size: 20px;
+    --header-font-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+    padding-top: var(--header-large-height);
+}
+
+.flex {
+    display: flex;
+}

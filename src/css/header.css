@@ -1,0 +1,17 @@
+header {
+    position: fixed;
+    top: 0;
+
+    height: var(--header-large-height);
+    width: 100%;
+
+    padding: var(--header-large-padding);
+
+    background: var(--primary);
+    line-height: var(--header-large-height);
+
+    color: var(--header-font-color);
+
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+    z-index: 999;
+}
