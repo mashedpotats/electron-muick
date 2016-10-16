@@ -6,7 +6,6 @@
 
     <link rel="stylesheet" href="css/main.css">
 
-    <script src="js/jquery.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
@@ -24,11 +23,19 @@
 <div class="settings">
     <div class="settings-shade"></div>
     <div class="settings-content">
-        <form class="flex">
-            <input type="text">
-            <button type="button">Change</button>
-        </form>
+        <span class="property-title">Music Directory</span>
+        <div class="flex">
+            <div class="folder-input">
+                <input class="folder-textbox" id="music-directory-input" type="text" title="Music Directory">
+                <div class="folder-button material-icons">folder</div>
+            </div>
+            <button id="music-directory-button" type="button">Change</button>
+        </div>
     </div>
+</div>
+
+<div class="content flex">
+    <audio class="content-item" id="audio" autoplay controls></audio>
 </div>
 
 <div class="loading">
