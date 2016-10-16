@@ -11,7 +11,6 @@ var dialog = electron.dialog;
 
 window.addEventListener("load", function () {
     var $musicDirectoryInput = $("#music-directory-input");
-    var musicDirectory = "";
 
     fs.readFile(__dirname + "/data/audiodir.txt", "utf-8", function (err, data) {
         if (err) {
@@ -20,8 +19,9 @@ window.addEventListener("load", function () {
 
         $musicDirectoryInput.val(data);
 
-        if (data != "")
-            $("#audio").attr("src", data + "/foo.mp3");
+        if (data != "") {
+            openDirectory(data);
+        }
         $(".loading").toggleClass("ready");
     });
 
@@ -35,8 +35,8 @@ window.addEventListener("load", function () {
 
     function changeDirectory() {
         if (fs.existsSync($musicDirectoryInput.val())) {
-            musicDirectory = $musicDirectoryInput.val();
-            fs.writeFileSync(__dirname + "/data/audiodir.txt", musicDirectory, "utf-8");
+            fs.writeFileSync(__dirname + "/data/audiodir.txt", $musicDirectoryInput.val(), "utf-8");
+            openDirectory($musicDirectoryInput.val());
         } else
             dialog.showMessageBox(mainWindow, {
                 type: "error",
@@ -53,4 +53,48 @@ window.addEventListener("load", function () {
             properties: ['openDirectory']
         })[0]);
     });
+
+    function openDirectory(path) {
+
+        var $content = $(".content");
+
+        var previous = null;
+        function createPlaylistItem(name, path) {
+            var $item = $("<div></div>");
+            $item.addClass("content-item");
+
+            $item.append("<i class='material-icons'></i><div class='content-item-text'>" + name + "</div>");
+
+            $item.on("click", function() {
+                $("#audio").attr("src", path + "/" + name);
+
+                if (previous != null)
+                    previous.removeClass("selected");
+
+                $(this).addClass("selected");
+
+                previous = $(this);
+            });
+
+            $content.append($item);
+        }
+
+        fs.readdir(path, function(err, rawFiles) {
+            var files = [];
+
+            for(var i = 0; i < rawFiles.length; i++) {
+                var file = rawFiles[i];
+
+                if (file.match(".mp3$")) {
+                    files.push(file);
+                    createPlaylistItem(file, path);
+                }
+            }
+
+            // $("#audio").attr("src", path + "/foo.mp3");
+            $(".behind-text").css("display", "Loading...");
+        });
+
+        $(".behind-text").text("Loading...");
+    }
 });

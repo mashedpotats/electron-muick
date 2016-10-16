@@ -48,7 +48,7 @@
     font-size: 36px;
 }
 
-.nopath {
+.behind-text {
     position: absolute;
     top: 128px;
     left: 0;
@@ -60,4 +60,6 @@
     width: 224px;
     color: #aaa;
     font-size: 11px;
+
+    z-index: -1
 }

@@ -1,3 +1,79 @@
+.content {
+    padding: 16px;
+    width: 100%;
+}
+
 .content-item {
+    position: relative;
+    display: flex;
+
+    background: #fff;
+    width: 100%;
+    padding: 16px;
+
+    /*margin-top: 8px;*/
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+
+    transition: all 200ms;
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+.content-item .material-icons {
+    flex-shrink: 1;
+    margin-right: 8px;
+    color: #4CAF50;
+}
+
+.content-item .material-icons::after {
+    content: "play_arrow";
+}
+
+.content-item.selected .material-icons {
+    color: #F44336;
+}
+
+.content-item.selected .material-icons::after {
+    content: "stop";
+}
+
+.content-item .content-item-text {
+    flex: 1;
+    line-height: 24px;
+}
+
+.content-item:hover, .content-item.selected {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+    z-index: 5;
+
+    margin: 4px 0;
+}
+
+.content-item.selected {
+    /*background: rgba(0, 0, 0, 0.1);*/
+}
+
+.content-item:active {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+    z-index: 6;
+}
+
+#audio {
+    display: block;
+
+    width: 100%;
+
+    --audio-height: 32px;
+    --audio-padding-top: 16px;
+
+    height: calc(var(--audio-height) + (2 * var(--audio-padding-top)));
+    padding: var(--audio-padding-top);
+    margin-bottom: 24px;
+
     background: #fafafa;
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
