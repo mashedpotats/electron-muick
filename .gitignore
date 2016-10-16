@@ -1,4 +1,4 @@
 # IntelliJ project filesgen
 .idea/
 node_modules/
-dist/
+MUICK-win32-x64/

@@ -21,8 +21,6 @@ function createMainWindow() {
     mainWindow.setMinimumSize(300, 400);
     mainWindow.loadURL(pwd + "app/index.html");
 
-    mainWindow.webContents.openDevTools();
-
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
