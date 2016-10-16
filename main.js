@@ -19,7 +19,7 @@ function createMainWindow() {
     });
 
     mainWindow.setMinimumSize(300, 400);
-    mainWindow.loadURL(pwd + "src/index.html");
+    mainWindow.loadURL(pwd + "app/index.html");
 
     mainWindow.webContents.openDevTools();
 
