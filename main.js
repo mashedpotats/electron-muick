@@ -3,6 +3,7 @@
  */
 
 const electron = require('electron');
+const path = require('path');
 
 const app = electron.app;
 const nativeImage = electron.nativeImage;
@@ -21,7 +22,7 @@ function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 1000,
         height: 600,
-        icon: __dirname + "/icon.png"
+        icon: path.join(__dirname, "icon.png")
     });
 
     mainWindow.setMinimumSize(300, 400);

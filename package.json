@@ -18,15 +18,19 @@
   },
   "homepage": "https://github.com/mashedpotats/electron-muick#readme",
   "dependencies": {
-    "material-ripple": "^0.2.5",
     "jquery": "^3.1.1"
   },
   "devDependencies": {
     "electron": "^1.4.3"
   },
   "build": {
-    "appId": "com.javilet.samuel.muick",
-    "category": "music"
+    "appId": "your.id",
+    "mac": {
+      "category": "public.app-category.music",
+    },
+    "win": {
+      "target": "nsis" 
+    }
   }
 
 }
