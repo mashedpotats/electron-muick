@@ -112,13 +112,17 @@ window.addEventListener("load", function () {
                 previous = $item;
             }
 
+            String.prototype.replaceAll = function(str1, str2, ignore) {
+                return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+            }
+
             var files = [];
 
-            console.log(path);
+            var compatibleFiles = ["wav", "wave", "mp3", "m4a", "m4b", "m4p", "m4v", "m4r", "3gp", "mp4", "acc", "ogg", "ogv", "oga", "ogx", "ogm", "spx", "opus", "webm"];
             for (var i = 0; i < rawFiles.length; i++) {
                 var file = rawFiles[i];
 
-                if (file.match(".mp3$")) {
+                if (file.match(".(" + compatibleFiles.toString().replaceAll(",", "|") + ")$")) {
                     files.push(file);
                     songNumber++;
                 }

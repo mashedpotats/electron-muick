@@ -5,6 +5,8 @@
 const electron = require('electron');
 
 const app = electron.app;
+const nativeImage = electron.nativeImage;
+var appIcon = nativeImage.createFromPath(__dirname + "/icon.png");
 
 const BrowserWindow = electron.BrowserWindow;
 
@@ -12,10 +14,14 @@ var mainWindow;
 
 var pwd = "file://" + __dirname + "/";
 
+console.log(__dirname);
+// app.dock.setIcon(appIcon);
+
 function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 1000,
-        height: 600
+        height: 600,
+        icon: __dirname + "/icon.png"
     });
 
     mainWindow.setMinimumSize(300, 400);
