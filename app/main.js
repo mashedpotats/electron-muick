@@ -6,8 +6,6 @@ const electron = require('electron');
 const path = require('path');
 
 const app = electron.app;
-const nativeImage = electron.nativeImage;
-var appIcon = nativeImage.createFromPath(__dirname + "/icon.png");
 
 const BrowserWindow = electron.BrowserWindow;
 
@@ -22,11 +20,11 @@ function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 1000,
         height: 600,
-        icon: path.join(__dirname, "icon.png")
+        icon: path.join(__dirname, "build/icon.png")
     });
 
     mainWindow.setMinimumSize(300, 400);
-    mainWindow.loadURL(pwd + "app/index.html");
+    mainWindow.loadURL(pwd + "index.html");
 
     mainWindow.on('closed', function () {
         mainWindow = null;

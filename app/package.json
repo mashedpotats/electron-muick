@@ -1,0 +1,14 @@
+{
+	"name": "MUICK",
+	"version": "1.0.0",
+	"description": "MUICK's dependencies",
+	"main": "main.js",
+	"author": "Samuel LI",
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"electron": "^1.4.3"
+	},
+	"dependencies": {
+		"jquery": "^3.1.1"
+	}
+}
